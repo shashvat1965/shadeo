@@ -9,7 +9,6 @@ export default function CanvasVideoPlayer() {
   const [volume, setVolume] = useState(1);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [uploadFile, setUploadedFile] = useState<File | null>(null);
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -28,7 +27,6 @@ export default function CanvasVideoPlayer() {
       if (input.files && input.files.length > 0) {
         const file = input.files[0];
         if (file) {
-          setUploadedFile(file);
           const newVideoUrl = URL.createObjectURL(file);
           setVideoUrl(newVideoUrl);
           initVideo();
